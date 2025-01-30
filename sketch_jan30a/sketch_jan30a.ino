@@ -13,9 +13,44 @@ AFMS.begin();
 
 void loop() {
   // put your main code here, to run repeatedly:
-rightMotor->setSpeed(100);
-leftMotor->setSpeed(100);
+
+forwards();
+delay(300);
+stops();
+leftTurn();
+}
+void forwards(){
+rightMotor->setSpeed(500);
+leftMotor->setSpeed(500);
 
 rightMotor->run(BACKWARD);
 leftMotor->run(BACKWARD);
+}
+void rightTurn(){
+rightMotor->setSpeed(250);
+leftMotor->setSpeed(0);
+
+rightMotor->run(BACKWARD);
+leftMotor->run(BACKWARD);
+}
+void leftTurn(){
+rightMotor->setSpeed(0);
+leftMotor->setSpeed(250);
+
+rightMotor->run(BACKWARD);
+leftMotor->run(BACKWARD);
+}
+void backwards(){
+rightMotor->setSpeed(500);
+leftMotor->setSpeed(500);
+
+rightMotor->run(FORWARD);
+leftMotor->run(FORWARD);
+}
+void stops(){
+rightMotor->setSpeed(0);
+leftMotor->setSpeed(0);
+
+rightMotor->run(FORWARD);
+leftMotor->run(FORWARD);
 }
