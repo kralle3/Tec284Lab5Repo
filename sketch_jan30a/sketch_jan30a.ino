@@ -19,10 +19,13 @@ Serial.begin(9600);
 void loop() {
   // put your main code here, to run repeatedly:
 
-forwards();
-delay(300);
-stops();
-leftTurn();
+distanceTest();
+if (distance > 30){
+  backwards();
+}
+else if (distance < 30) {
+  forwards();
+}
 }
 void forwards(){
 rightMotor->setSpeed(500);
